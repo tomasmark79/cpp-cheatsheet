@@ -231,53 +231,53 @@ throw x                     // Throw exception, aborts if not caught
 x , y                       // evaluates x and y, returns y (seldom used)
 ```
 
-## Classes
+## Classes - Třídy
 
 ```cpp
-class T {                   // A new type
-private:                    // Section accessible only to T's member functions
-protected:                  // Also accessible to classes derived from T
-public:                     // Accessible to all
-    int x;                  // Member data
-    void f();               // Member function
-    void g() {return;}      // Inline member function
-    void h() const;         // Does not modify any data members
-    int operator+(int y);   // t+y means t.operator+(y)
-    int operator-();        // -t means t.operator-()
-    T(): x(1) {}            // Constructor with initialization list
-    T(const T& t): x(t.x) {}// Copy constructor
+class T {                   // Nový typ
+private:                    // Sekce přístupná jen pro metody T
+protected:                  // Sekce přístupná také pro zděděné třídy z T
+public:                     // Přístupná všem
+    int x;                  // Datová složka třídy
+    void f();               // Metoda třídy
+    void g() {return;}      // Vložená implementace metody
+    void h() const;         // Neovlivňuje datové složky třídy
+    int operator+(int y);   // t+y představuje t.operator+(y)
+    int operator-();        // -t se představuje t.operator-()
+    T(): x(1) {}            // Konstruktor se seznamem inicializace
+    T(const T& t): x(t.x) {}// Kopírovací konstruktor
     T& operator=(const T& t)
-    {x=t.x; return *this; } // Assignment operator
-    ~T();                   // Destructor (automatic cleanup routine)
-    explicit T(int a);      // Allow t=T(3) but not t=3
-    T(float x): T((int)x) {}// Delegate constructor to T(int)
+    {x=t.x; return *this; } // Přiřazovací operátor
+    ~T();                   // Destruktor (automatická čistící funkce)
+    explicit T(int a);      // Umožňuje t=T(3) ale ne t=3
+    T(float x): T((int)x) {}// Delegovaný konstruktor na T(int)
     operator int() const
-    {return x;}             // Allows int(t)
-    friend void i();        // Global function i() has private access
-    friend class U;         // Members of class U have private access
-    static int y;           // Data shared by all T objects
-    static void l();        // Shared code.  May access y but not x
-    class Z {};             // Nested class T::Z
-    typedef int V;          // T::V means int
+    {return x;}             // Umožnuje int(t)
+    friend void i();        // Globální funkce i() se soukromým přístupem
+    friend class U;         // Členové třídy U se soukromým přístupem
+    static int y;           // Sdílená proměnná mezi všemi objekty T
+    static void l();        // Sdílený kód. y může přistupovat, ale ne x
+    class Z {};             // Vnořená třída T::Z
+    typedef int V;          // T::V představuje typ int
 };
-void T::f() {               // Code for member function f of class T
-    this->x = x;}           // this is address of self (means x=x;)
-int T::y = 2;               // Initialization of static member (required)
-T::l();                     // Call to static member
-T t;                        // Create object t implicit call constructor
-t.f();                      // Call method f on object t
+void T::f() {               // Kód pro členskou funkci f třídy T
+    this->x = x;}           // toto je adresa sebe sama (představuje x=x;)
+int T::y = 2;               // Inicializace statické proměnné (vyžadováno)
+T::l();                     // Volání statické metody
+T t;                        // Vytvoří objekt s implicitním voláním konstruktoru
+t.f();                      // Volá metodu f na objektu T
 
-struct T {                  // Equivalent to: class T { public:
-  virtual void i();         // May be overridden at run time by derived class
-  virtual void g()=0; };    // Must be overridden (pure virtual)
-class U: public T {         // Derived class U inherits all members of base T
+struct T {                  // Stejné jako: class T { public:
+  virtual void i();         // Může být přepsán za běhu zděděnou třídou
+  virtual void g()=0; };    // Musí být přepsán za běhu zděděnou třídou (čistě abstraktní)
+class U: public T {         // Zděděná třída U dědí všechny členy třídy předka T
   public:
-  void g(int) override; };  // Override method g
-class V: private T {};      // Inherited members of T become private
+  void g(int) override; };  // Přepsání metody g
+class V: private T {};      // Zděděné členy třídy T se stávají private
 class W: public T, public U {};
-                            // Multiple inheritance
+                            // Vícenásobná dědičnost
 class X: public virtual T {};
-                            // Classes derived from X have base T directly
+                            // Třídy zděděné ze třídy X mají stejného předka třídy T
 ```
 
 All classes have a default copy constructor, assignment operator, and destructor, which perform the
