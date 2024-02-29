@@ -280,30 +280,27 @@ class X: public virtual T {};
                             // Třídy zděděné ze třídy X mají stejného předka třídy T
 ```
 
-All classes have a default copy constructor, assignment operator, and destructor, which perform the
-corresponding operations on each data member and each base class as shown above. There is also a default no-argument
-constructor (required to create arrays) if the class has no constructors. Constructors, assignment, and
-destructors do not inherit.
+Všechny třídy mají výchozí kopírovací konstruktor, přiřazovací operátor a destruktor, které provádějí související operace na každém datové složce a na každé rodičovské třídě, tak jak je uvedeno výše. K dispozici je také výchozí konstruktor bez argumentů (vyžadován k vytvoření polí), pokud třída nemá žádný konstruktor. Konstruktory, přiřazení a destruktory nedědí.
 
-## Templates
+## Templates - Šablony
 
 ```cpp
-template <class T> T f(T t);// Overload f for all types
-template <class T> class X {// Class with type parameter T
-  X(T t); };                // A constructor
+template <class T> T f(T t);// Přetíží funkci f pro všechny typy
+template <class T> class X {// Třída s <parametrem> typu T 
+  X(T t); };                // a konstruktorem
 template <class T> X<T>::X(T t) {}
-                            // Definition of constructor
-X<int> x(3);                // An object of type "X of int"
+                            // Definice konstruktoru
+X<int> x(3);                // Vytvoří objekt x třídy X typu <int>
 template <class T, class U=T, int n=0>
-                            // Template with default parameters
+                            // Třída s implicitním 2. a 3. parametrem
 ```
 
-## Namespaces
+## Namespaces - Jmenné prostory
 
 ```cpp
-namespace N {class T {};}   // Hide name T
-N::T t;                     // Use name T in namespace N
-using namespace N;          // Make T visible without N::
+namespace N {class T {};}   // Skrytý prostor T
+N::T t;                     // Použití jména T v prostoru N
+using namespace N;          // Udělej T viditelné bez N:: viz. cout;-)
 ```
 
 ## `memory` (dynamic memory management)
