@@ -298,7 +298,7 @@ template <class T, class U=T, int n=0>
 ## Namespaces - Jmenné prostory
 
 ```cpp
-namespace N {class T {};}   // Skrytý prostor T
+namespace N {class T {};}   // Zakrytí T v prostoru N
 N::T t;                     // Použití jména T v prostoru N
 using namespace N;          // Udělej T viditelné bez N:: viz. cout;-)
 ```
