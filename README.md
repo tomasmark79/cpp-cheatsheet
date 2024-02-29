@@ -9,6 +9,9 @@ The goal is to give a concise overview of basic, modern C++ (C++14).
 
 The document is hosted on https://github.com/mortennobel/cpp-cheatsheet. Any comments and feedback are appreciated.
 
+Český překlad komentářů Tomáš Mark
+Dokument je k dispozici v repozitáři na https://github.com/tomasmark79/cpp-cheatsheet.
+
 ## Preprocessor
 
 ```cpp
