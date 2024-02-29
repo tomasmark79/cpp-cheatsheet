@@ -10,23 +10,23 @@ The goal is to give a concise overview of basic, modern C++ (C++14).
 The document is hosted on https://github.com/mortennobel/cpp-cheatsheet. Any comments and feedback are appreciated.
 
 Český překlad komentářů Tomáš Mark
-Dokument je k dispozici v repozitáři na https://github.com/tomasmark79/cpp-cheatsheet.
+Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet.
 
 ## Preprocessor
 
 ```cpp
-                            // Comment to end of line
-                            /* Multi-line comment */
-#include  <stdio.h>         // Insert standard header file
-#include "myfile.h"         // Insert file in current directory
-#define X some text         // Replace X with some text
-#define F(a,b) a+b          // Replace F(1,2) with 1+2
+                            // Komentář do konce řádku
+                            /* Více řádkový komentář */
+#include  <stdio.h>         // Vložení standardního hlavičkového souboru
+#include "myfile.h"         // Vložení s. h. souboru v akt. složce
+#define X nejaky text       // Nahradí X textem nejaky text
+#define F(a,b) a+b          // Nahradí F(1,2) s 1+2
 #define X \
- some text                  // Multiline definition
-#undef X                    // Remove definition
-#if defined(X)              // Conditional compilation (#ifdef X)
-#else                       // Optional (#ifndef X or #if !defined(X))
-#endif                      // Required after #if, #ifdef
+ nejaky text                // Víceřádková definice
+#undef X                    // Odebrání definice
+#if defined(X)              // Podmíněná kompilace (#ifdef X)
+#else                       // Volitelné (#ifndef X nebo #if !defined(X))
+#endif                      // Je vyžadováno po #if, #ifdef
 ```
 
 ## Literals
