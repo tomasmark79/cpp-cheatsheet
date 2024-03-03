@@ -9,27 +9,29 @@ The goal is to give a concise overview of basic, modern C++ (C++14).
 
 The document is hosted on https://github.com/mortennobel/cpp-cheatsheet. Any comments and feedback are appreciated.
 
-Český překlad komentářů Tomáš Mark
-Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet.
+# C++ RYCHLÁ REFERENCE / C++ TAHÁK
 
-## Preprocessor
+Český překlad komentářů Tomáš Mark.
+Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet. Jakékoliv další připomínky a návrhy jsou velmi vítány.
+
+## Preprocessor - Preprocesor
 
 ```cpp
                             // Komentář do konce řádku
-                            /* Více řádkový komentář */
+                            /* Víceřádkový komentář */
 #include  <stdio.h>         // Vložení standardního hlavičkového souboru
-#include "myfile.h"         // Vložení s. h. souboru v akt. složce
-#define X nejaky text       // Nahradí X textem nejaky text
+#include "myfile.h"         // Vložení s. h. souboru v akt. pracovní složce
+#define X jsem text       	// Nahradí X textem jsem text
 #define F(a,b) a+b          // Nahradí F(1,2) s 1+2
 #define X \
- nejaky text                // Víceřádková definice
-#undef X                    // Odebrání definice
+ jsem text                	// Víceřádková definice
+#undef X                    // Zrušení definice
 #if defined(X)              // Podmíněná kompilace (#ifdef X)
 #else                       // Volitelné (#ifndef X nebo #if !defined(X))
 #endif                      // Je vyžadováno po #if, #ifdef
 ```
 
-## Literals
+## Literals - nepřekládat
 
 ```cpp
 255, 0377, 0xff             // Integers (decimal, octal, hex)
@@ -43,11 +45,11 @@ true, false                 // bool constants 1 and 0
 nullptr                     // Pointer type with the address of 0
 ```
 
-## Declarations
+## Declarations - Deklarace
 
 ```cpp
-int x;                      // Declare x to be an integer (value undefined)
-int x=255;                  // Declare and initialize x to 255
+int x;                      // Deklarace x jako celé číslo (nedefinovaná hodnota)
+int x=255;                  // Deklarace a inicializace x na 255
 short s; long l;            // Usually 16 or 32 bit integer (int may be either)
 char c='a';                 // Usually 8 bit character
 unsigned char u=255;
