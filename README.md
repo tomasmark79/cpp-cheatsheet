@@ -21,7 +21,7 @@ Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-che
                             /* Víceřádkový komentář */
 #include  <stdio.h>         // Vložení standardního hlavičkového souboru
 #include "myfile.h"         // Vložení s. h. souboru v akt. pracovní složce
-#define X jsem text       	// Nahradí X textem jsem text
+#define X jsem text			// Nahradí X textem jsem text
 #define F(a,b) a+b          // Nahradí F(1,2) s 1+2
 #define X \
  jsem text                	// Víceřádková definice
@@ -31,7 +31,7 @@ Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-che
 #endif                      // Je vyžadováno po #if, #ifdef
 ```
 
-## Literals - nepřekládat
+## Literals
 
 ```cpp
 255, 0377, 0xff             // Integers (decimal, octal, hex)
@@ -39,57 +39,57 @@ Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-che
 123.0, 1.23e2               // double (real) numbers
 'a', '\141', '\x61'         // Character (literal, octal, hex)
 '\n', '\\', '\'', '\"'      // Newline, backslash, single quote, double quote
-"string\n"                  // Array of characters ending with newline and \0
-"hello" "world"             // Concatenated strings
-true, false                 // bool constants 1 and 0
-nullptr                     // Pointer type with the address of 0
+"string\n"                  // Pole znaků zakončené Newline a \0
+"hello" "world"             // Zřetězené řetězce
+true, false                 // Boolova konstanta 1 and 0
+nullptr                     // Typ ukazatele s adresou 0
 ```
 
 ## Declarations - Deklarace
 
 ```cpp
 int x;                      // Deklarace x jako celé číslo (nedefinovaná hodnota)
-int x=255;                  // Deklarace a inicializace x na 255
-short s; long l;            // Usually 16 or 32 bit integer (int may be either)
-char c='a';                 // Usually 8 bit character
+int x=255;                  // Deklarace a inicializace x na hodnotu 255
+short s; long l;            // Obvykle 16 nebo 32 bitové celé číslo(int může být obojí)
+char c='a';                 // Obvykle 8 bitový znak
 unsigned char u=255;
-signed char s=-1;           // char might be either
+signed char s=-1;           // typ char umí i signed
 unsigned long x =
-  0xffffffffL;              // short, int, long are signed
-float f; double d;          // Single or double precision real (never unsigned)
-bool b=true;                // true or false, may also use int (1 or 0)
-int a, b, c;                // Multiple declarations
-int a[10];                  // Array of 10 ints (a[0] through a[9])
-int a[]={0,1,2};            // Initialized array (or a[3]={0,1,2}; )
-int a[2][2]={{1,2},{4,5}};  // Array of array of ints
-char s[]="hello";           // String (6 elements including '\0')
-std::string s = "Hello"     // Creates string object with value "Hello"
+  0xffffffffL;              // typy short, int, long jsou signed
+float f; double d;          // Jednoduchá, nebo dvojitá přesnost reálných čísel (nikdy unsigned)
+bool b=true;                // true nebo false, může použít i typ int (1 nebo 0)
+int a, b, c;                // Více deklarací
+int a[10];                  // Pole s 10 prvky typu int (a[0] až a[9])
+int a[]={0,1,2};            // Inicializované pole (nebo a[3]={0,1,2}; )
+int a[2][2]={{1,2},{4,5}};  // Pole polí typu int (dvourozměrné pole)
+char s[]="hello";           // Řetězec (6 prvků s '\0' na konci)
+std::string s = "Hello"     // Vytváří objekt std::string s hodnotou "Hello"
 std::string s = R"(Hello
-World)";                    // Creates string object with value "Hello\nWorld"
-int* p;                     // p is a pointer to (address of) int
-char* s="hello";            // s points to unnamed array containing "hello"
-void* p=nullptr;            // Address of untyped memory (nullptr is 0)
-int& r=x;                   // r is a reference to (alias of) int x
-enum weekend {SAT,SUN};     // weekend is a type with values SAT and SUN
-enum weekend day;           // day is a variable of type weekend
-enum weekend{SAT=0,SUN=1};  // Explicit representation as int
-enum {SAT,SUN} day;         // Anonymous enum
-enum class Color {Red,Blue};// Color is a strict type with values Red and Blue
-Color x = Color::Red;       // Assign Color x to red
-typedef String char*;       // String s; means char* s;
-const int c=3;              // Constants must be initialized, cannot assign to
-const int* p=a;             // Contents of p (elements of a) are constant
-int* const p=a;             // p (but not contents) are constant
-const int* const p=a;       // Both p and its contents are constant
-const int& cr=x;            // cr cannot be assigned to change x
+World)";                    // Vytváří objekt std::string s hodnotou "Hello\nWorld"
+int* p;                     // p je ukazatel na (adresu v paměti) typu int
+char* s="hello";            // s ukazuje na bezejmenné pole obsahující "hello"
+void* p=nullptr;            // Adresa paměti bez definovaného typu (nullptr je 0)
+int& r=x;                   // r je reference na (alias) int x
+enum weekend {SAT,SUN};     // weekend je typ s hodnotami SAT and SUN
+enum weekend day;           // day je proměnná typu weekend
+enum weekend{SAT=0,SUN=1};  // Explicitní reprezentace jako typ int
+enum {SAT,SUN} day;         // Anonymní enum
+enum class Color {Red,Blue};// Color je striktní typ s hodnotami Red a Blue
+Color x = Color::Red;       // Přiřazení Color x k red
+typedef String char*;       // String s; znamená char* s;
+const int c=3;              // Konstanty musí být inicializované, nelze jim přiřazovat
+const int* p=a;             // Obsah p (prvky a) jsou konstanty
+int* const p=a;             // p (nikoliv obsah) jsou konstanty
+const int* const p=a;       // Obojí p i jeho obsah jsou konstanty
+const int& cr=x;            // cr nemůže přiřadit změnu pro x
 int8_t,uint8_t,int16_t,
 uint16_t,int32_t,uint32_t,
-int64_t,uint64_t            // Fixed length standard types
-auto it = m.begin();        // Declares it to the result of m.begin()
+int64_t,uint64_t            // Standardní typy pevné délky
+auto it = m.begin();        // Deklarace it dle výsledku m.begin()
 auto const param = config["param"];
-                            // Declares it to the const result
+                            // Deklarace it dle výsledku jako konstanta
 auto& s = singleton::instance();
-                            // Declares it to a reference of the result
+                            // Deklarace s dle výsledku jako reference
 ```
 
 ## STORAGE Classes
