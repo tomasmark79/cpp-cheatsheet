@@ -1,7 +1,8 @@
 # C++ RYCHLÁ REFERENCE / C++ TAHÁK
 
 Český překlad komentářů Tomáš Mark.
-Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet. Jakékoliv další připomínky a návrhy jsou velmi vítány.
+Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet.
+Jakékoliv další připomínky a návrhy jsou velmi vítány. Původní zdroj v angličtině najdete v popisu u forku.
 
 ## Preprocessor - Preprocesor
 
