@@ -21,10 +21,10 @@ Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-che
                             /* Víceřádkový komentář */
 #include  <stdio.h>         // Vložení standardního hlavičkového souboru
 #include "myfile.h"         // Vložení s. h. souboru v akt. pracovní složce
-#define X jsem text			// Nahradí X textem jsem text
+#define X jsem text         // Nahradí X textem jsem text
 #define F(a,b) a+b          // Nahradí F(1,2) s 1+2
 #define X \
- jsem text                	// Víceřádková definice
+ jsem text                  // Víceřádková definice
 #undef X                    // Zrušení definice
 #if defined(X)              // Podmíněná kompilace (#ifdef X)
 #else                       // Volitelné (#ifndef X nebo #if !defined(X))
