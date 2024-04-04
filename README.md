@@ -82,12 +82,12 @@ auto& s = singleton::instance();
                             // Deklarace s dle výsledku jako reference
 ```
 
-## STORAGE Classes
+## STORAGE Classes - Úložné třídy
 
 ```cpp
-int x;                      // Auto (memory exists only while in scope)
-static int x;               // Global lifetime even if local scope
-extern int x;               // Information only, declared elsewhere
+int x;                      // Auto (pamět existuje pouze uvnitř pole působnosti)
+static int x;               // Globální životnost i když je deklarována v místním rozsahu
+extern int x;               // Pouze informace, deklarované v jiném prostoru
 ```
 
 ## Statements
