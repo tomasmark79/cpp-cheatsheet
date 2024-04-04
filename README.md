@@ -90,18 +90,18 @@ static int x;               // Globální životnost i když je deklarována v m
 extern int x;               // Pouze informace, deklarované v jiném prostoru
 ```
 
-## Statements
+## Statements - Příkazy
 
 ```cpp
-x=y;                        // Every expression is a statement
-int x;                      // Declarations are statements
-;                           // Empty statement
-{                           // A block is a single statement
-    int x;                  // Scope of x is from declaration to end of block
+x=y;                        // Každý výraz je příkazem
+int x;                      // Deklarace je příkaz
+;                           // Prázdný příkaz
+{                           // Blok je jednoduchý příkaz
+    int x;                  // Rozsah x je deklarován do konce bloku
 }
-if (x) a;                   // If x is true (not 0), evaluate a
-else if (y) b;              // If not x and y (optional, may be repeated)
-else c;                     // If not x and not y (optional)
+if (x) a;                   // Jestliže x je pravda (není 0), vyhodnoť a
+else if (y) b;              // Jestliže není x a y (volitelné, lze opakovat)
+else c;                     // Jestliže není x a není y (volitelné)
 
 while (x) a;                // Repeat 0 or more times while x is true
 
