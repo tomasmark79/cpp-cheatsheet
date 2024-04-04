@@ -103,12 +103,12 @@ if (x) a;                   // Jestliže x je pravda (není 0), vyhodnoť a
 else if (y) b;              // Jestliže není x a y (volitelné, lze opakovat)
 else c;                     // Jestliže není x a není y (volitelné)
 
-while (x) a;                // Repeat 0 or more times while x is true
+while (x) a;                // Opakuj pouze pokud x je pravda (není 0)
 
-for (x; y; z) a;            // Equivalent to: x; while(y) {a; z;}
+for (x; y; z) a;            // Ekvivalent k: x; while(y) {a; z;}
 
-for (x : y) a;              // Range-based for loop e.g.
-                            // for (auto& x in someList) x.y();
+for (x : y) a;              // Cyklus na bázy rozsahu, např.
+                            // Pro (auto& x v seznamu) x.y();
 
 do a; while (x);            // Equivalent to: a; while(x) a;
 
