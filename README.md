@@ -21,14 +21,14 @@ Jakékoliv další připomínky a návrhy jsou velmi vítány. Původní zdroj v
 #endif                      // Je vyžadováno po #if, #ifdef
 ```
 
-## Literals
+## Literals - Literály
 
 ```cpp
-255, 0377, 0xff             // Integers (decimal, octal, hex)
-2147483647L, 0x7fffffffl    // Long (32-bit) integers
-123.0, 1.23e2               // double (real) numbers
-'a', '\141', '\x61'         // Character (literal, octal, hex)
-'\n', '\\', '\'', '\"'      // Newline, backslash, single quote, double quote
+255, 0377, 0xff             // Celá čísla (decimal, octal, hex)
+2147483647L, 0x7fffffffl    // Long (32-bit) celá čísla
+123.0, 1.23e2               // double (reálná) čísla
+'a', '\141', '\x61'         // Znak (literál, octal, hex)
+'\n', '\\', '\'', '\"'      // Nová řádka, zpětné lomítko, jednoduchá uvozovka, dvojtá uvozovka
 "string\n"                  // Pole znaků zakončené Newline a \0
 "hello" "world"             // Zřetězené řetězce
 true, false                 // Boolova konstanta 1 and 0
