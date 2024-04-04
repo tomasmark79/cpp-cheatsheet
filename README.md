@@ -26,12 +26,12 @@ Jakékoliv další připomínky a návrhy jsou velmi vítány. Původní zdroj v
 ```cpp
 255, 0377, 0xff             // Celá čísla (decimal, octal, hex)
 2147483647L, 0x7fffffffl    // Long (32-bit) celá čísla
-123.0, 1.23e2               // double (reálná) čísla
+123.0, 1.23e2               // Double (reálná) čísla
 'a', '\141', '\x61'         // Znak (literál, octal, hex)
 '\n', '\\', '\'', '\"'      // Nová řádka, zpětné lomítko, jednoduchá uvozovka, dvojtá uvozovka
-"string\n"                  // Pole znaků zakončené Newline a \0
+"string\n"                  // Pole znaků zakončené novou řádkou a \0
 "hello" "world"             // Zřetězené řetězce
-true, false                 // Boolova konstanta 1 and 0
+true, false                 // Boolova konstanta 1 a 0
 nullptr                     // Typ ukazatele s adresou 0
 ```
 
@@ -45,8 +45,8 @@ char c='a';                 // Obvykle 8 bitový znak
 unsigned char u=255;
 signed char s=-1;           // typ char umí i signed
 unsigned long x =
-  0xffffffffL;              // typy short, int, long jsou signed
-float f; double d;          // Jednoduchá, nebo dvojitá přesnost reálných čísel (nikdy unsigned)
+  0xffffffffL;              // typy short, int, long jsou podepsané (signed)
+float f; double d;          // Jednoduchá, dvojitá přesnost reálných čísel (nikdy nějsou nepodepsané)
 bool b=true;                // true nebo false, může použít i typ int (1 nebo 0)
 int a, b, c;                // Více deklarací
 int a[10];                  // Pole s 10 prvky typu int (a[0] až a[9])
