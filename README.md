@@ -103,14 +103,15 @@ if (x) a;                   // Jestliže x je pravda (není 0), vyhodnoť a
 else if (y) b;              // Jestliže není x a y (volitelné, lze opakovat)
 else c;                     // Jestliže není x a není y (volitelné)
 
-while (x) a;                // Opakuj pouze pokud x je pravda (není 0)
+while (x) a;                // Vejdi a opakuj pouze pokud x je pravda
+                            (pokud x není 0)
 
 for (x; y; z) a;            // Ekvivalent k: x; while(y) {a; z;}
 
 for (x : y) a;              // Cyklus na bázy rozsahu, např.
                             // Pro (auto& x v seznamu) x.y();
 
-do a; while (x);            // Equivalent to: a; while(x) a;
+do a; while (x);            // Ekvivalent k: a; while(x) a;
 
 switch (x) {                // x must be int
     case X1: a;             // If x == X1 (must be a const), jump here
