@@ -113,17 +113,17 @@ for (x : y) a;              // Cyklus na bázy rozsahu, např.
 
 do a; while (x);            // Ekvivalent k: a; while(x) a;
 
-switch (x) {                // x must be int
-    case X1: a;             // If x == X1 (must be a const), jump here
-    case X2: b;             // Else if x == X2, jump here
-    default: c;             // Else jump here (optional)
+switch (x) {                // x musí být celé číslo (int)
+    case X1: a;             // Pokud x == X1 (musí být konstanta), skoč sem
+    case X2: b;             // Jinak když x == X2, skoč sem
+    default: c;             // Jinak skoč sem (volitelná klauzule)
 }
-break;                      // Jump out of while, do, or for loop, or switch
-continue;                   // Jump to bottom of while, do, or for loop
-return x;                   // Return x from function to caller
+break;                      // Vyskoč z cyklů jako while, do, for, nebo switch
+continue;                   // Skoč na začátek cyklů jako while, do, nebo for
+return x;                   // Vrať x z funkce k volanému
 try { a; }
-catch (T t) { b; }          // If a throws a T, then jump here
-catch (...) { c; }          // If a throws something else, jump here
+catch (T t) { b; }          // Při vyjímce T skoč sem
+catch (...) { c; }          // Při jakékéliv vyjímce skoč sem
 ```
 
 ## Functions
