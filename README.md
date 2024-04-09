@@ -163,19 +163,19 @@ others are left to right. Precedence does not affect order of evaluation, which 
 checks for arrays out of bounds, invalid pointers, etc.
 
 ```cpp
-T::X                        // Name X defined in class T
-N::X                        // Name X defined in namespace N
-::X                         // Global name X
+T::X                        // Název X definován ve třídě T
+N::X                        // Název X definován ve jmenném prostoru N
+::X                         // Globalní název X
 
-t.x                         // Member x of struct or class t
-p-> x                       // Member x of struct or class pointed to by p
-a[i]                        // i'th element of array a
-f(x,y)                      // Call to function f with arguments x and y
-T(x,y)                      // Object of class T initialized with x and y
-x++                         // Add 1 to x, evaluates to original x (postfix)
-x--                         // Subtract 1 from x, evaluates to original x
-typeid(x)                   // Type of x
-typeid(T)                   // Equals typeid(x) if x is a T
+t.x                         // Člen x struktury nebo třídy t
+p->x                        // Člen x struktury nebo třídy ukazující pomocí p
+a[n]                        // eNtý element pole
+f(x,y)                      // Volání funkce f s argumenty x and y
+T(x,y)                      // Objekt třídy T inicializovaný x a y
+x++                         // Přičtení 1 do x, vyhodnotí se jako původní x (postfix)
+x--                         // Odečtení 1 od x, vyhodnotí se jako původní x
+typeid(x)                   // Typ x
+typeid(T)                   // Stejné jako typeid(x) pokud x je T
 dynamic_cast< T>(x)         // Converts x to a T, checked at run time.
 static_cast< T>(x)          // Converts x to a T, not checked
 reinterpret_cast< T>(x)     // Interpret bits of x as a T
