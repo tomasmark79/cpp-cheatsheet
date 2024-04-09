@@ -335,18 +335,18 @@ r = dynamic_pointer_cast<B>(t); // Converts t to a shared_ptr<B>
 
 ```
 
-## `math.h`, `cmath` (floating point math)
+## `math.h`, `cmath` (floating point math) - matematika s plovoucí desetinnou čárkou
 
 ```cpp
-#include <cmath>            // Include cmath (std namespace)
-sin(x); cos(x); tan(x);     // Trig functions, x (double) is in radians
-asin(x); acos(x); atan(x);  // Inverses
+#include <cmath>            // Hlavička cmath (jmenný prostor std)
+sin(x); cos(x); tan(x);     // Trig funkce, x (double) jsou v radiánech
+asin(x); acos(x); atan(x);  // Inverze
 atan2(y, x);                // atan(y/x)
-sinh(x); cosh(x); tanh(x);  // Hyperbolic sin, cos, tan functions
-exp(x); log(x); log10(x);   // e to the x, log base e, log base 10
-pow(x, y); sqrt(x);         // x to the y, square root
-ceil(x); floor(x);          // Round up or down (as a double)
-fabs(x); fmod(x, y);        // Absolute value, x mod y
+sinh(x); cosh(x); tanh(x);  // Hyperbolické sin, cos, tan
+exp(x); log(x); log10(x);   // e na x, log báze e, log báze 10
+pow(x, y); sqrt(x);         // x na y, odmocnina
+ceil(x); floor(x);          // Zaokrouhlení nahoru, dolů (jako double)
+fabs(x); fmod(x, y);        // Absolutní hodnota, x modulo y
 ```
 
 ## `assert.h`, `cassert` (Debugging Aid)
