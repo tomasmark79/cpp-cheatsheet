@@ -176,10 +176,10 @@ x++                         // Přičtení 1 do x, vyhodnotí se jako původní 
 x--                         // Odečtení 1 od x, vyhodnotí se jako původní x
 typeid(x)                   // Typ x
 typeid(T)                   // Stejné jako typeid(x) pokud x je T
-dynamic_cast< T>(x)         // Converts x to a T, checked at run time.
-static_cast< T>(x)          // Converts x to a T, not checked
-reinterpret_cast< T>(x)     // Interpret bits of x as a T
-const_cast< T>(x)           // Converts x to same type T but not const
+dynamic_cast< T>(x)         // Převádí x na T s kontrolou za běhu
+static_cast< T>(x)          // Převádí x na T, bez kontroly
+reinterpret_cast< T>(x)     // interpretuje bity x jako T
+const_cast< T>(x)           // Převádí x na stejný typ T jen odebere modifikátor const
 
 sizeof x                    // Number of bytes used to represent object x
 sizeof(T)                   // Number of bytes to represent type T
