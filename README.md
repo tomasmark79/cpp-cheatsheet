@@ -172,7 +172,7 @@ N::X                        // Název X definovaný ve jmenném prostoru N
 
 t.x                         // Člen x struktury nebo třídy t
 p->x                        // Člen x struktury nebo třídy ukazující pomocí p
-a[n]                        // eNtý element pole
+a[n]                        // eNtý prvek pole
 f(x,y)                      // Volání funkce f s argumenty x and y
 T(x,y)                      // Objekt třídy T inicializovaný x a y
 x++                         // Přičtení 1 do x, vyhodnotí se jako původní x (postfix)
@@ -296,17 +296,18 @@ template <class T, class U=T, int n=0>
 ```cpp
 namespace N {class T {};}   // Zakrytí T v prostoru N
 N::T t;                     // Použití jména T v prostoru N
-using namespace N;          // Udělej T viditelné bez N:: viz. cout;-)
+using namespace N;          // Udělání T viditelné bez N:: viz. cout;-)
 ```
 
-## `memory` (dynamic memory management)
+## `memory` (dynamic memory management) - pamět (správa dynamické paměti)
 
 ```cpp
-#include <memory>           // Include memory (std namespace)
-shared_ptr<int> x;          // Empty shared_ptr to a integer on heap. Uses reference counting for cleaning up objects.
-x = make_shared<int>(12);   // Allocate value 12 on heap
-shared_ptr<int> y = x;      // Copy shared_ptr, implicit changes reference count to 2.
-cout << *y;                 // Dereference y to print '12'
+#include <memory>           // Vložení hlavičky <memory> (jmenný prostor std)
+shared_ptr<int> x;          // Prázdný chytrý sdílený ukazatel shared_ptr na celé číslo na haldě.
+                            // Používá referenční počítání pro čištění objektů.
+x = make_shared<int>(12);   // Alokace hodnoty 12 na haldě.
+shared_ptr<int> y = x;      // Kopírování shared_ptr, implicitně změní počet odkazů na 2.
+cout << *y;                 // Dereference y k vytištění '12'
 if (y.get() == x.get()) {   // Raw pointers (here x == y)
     cout << "Same";  
 }  
