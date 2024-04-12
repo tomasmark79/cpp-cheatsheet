@@ -126,19 +126,19 @@ catch (T t) { b; }          // Při vyjímce T skoč sem
 catch (...) { c; }          // Při jakékéliv vyjímce skoč sem
 ```
 
-## Functions
+## Functions - Funkce
 
 ```cpp
-int f(int x, int y);        // f is a function taking 2 ints and returning int
-void f();                   // f is a procedure taking no arguments
-void f(int a=0);            // f() is equivalent to f(0)
-f();                        // Default return type is int
-inline f();                 // Optimize for speed
-f() { statements; }         // Function definition (must be global)
-T operator+(T x, T y);      // a+b (if type T) calls operator+(a, b)
-T operator-(T x);           // -a calls function operator-(a)
-T operator++(int);          // postfix ++ or -- (parameter ignored)
-extern "C" {void f();}      // f() was compiled in C
+int f(int x, int y);        // f je funkce přijímající 2 celá čísla a vracející celé číslo
+void f();                   // f je procedura bez parametrů
+void f(int a=0);            // f() je ekvivalentní f(0)
+f();                        // výchozím návratovým typem je celé číslo
+inline f();                 // Optimalizace rychlosti
+f() { statements; }         // Definice funkce (musí být globální)
+T operator+(T x, T y);      // a+b (Jestliže jsou typu T) volají operator+(a, b)
+T operator-(T x);           // -a volá funkci operator-(a)
+T operator++(int);          // postfix ++ or -- (parametr je ignorován)
+extern "C" {void f();}      // f() bulo kompilováno v C
 ```
 
 Function parameters and return values may be of any type. A function must either be declared or defined before
