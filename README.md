@@ -2,7 +2,8 @@
 
 Český překlad komentářů Tomáš Mark.
 Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet.
-Jakékoliv další připomínky a návrhy jsou velmi vítány. Původní zdroj v angličtině najdete v popisu u forku.
+Jakékoliv další připomínky a návrhy jsou velmi vítány.
+Původní zdroj v angličtině najdete v popisu u forku.
 
 ## Preprocessor - Preprocesor
 
@@ -141,32 +142,32 @@ T operator++(int);          // postfix ++ nebo -- (parametr je ignorován)
 extern "C" {void f();}      // f() bylo kompilováno v C
 ```
 
-Parametry funkcí a návratové hodnoty mohou být libovolného typu. Funkce musí být buď deklarována,
-nebo definována dříve, než se začne používat. Může být nejprve deklarována a definován později.
+Parametry funkcí a návratové hodnoty mohou být libovolného typu. Funkce musí být buď deklarovaná,
+nebo definovaná dříve, než se začne používat. Může být nejprve deklarovaná a definovaná později.
 Každý program se skládá ze sady globálních proměnných deklarací a sady definic funkcí
-(případně v samostatných souborech), z nichž jedna musí být:
+(mohou být v samostatných souborech), z nichž jedna funkce musí být:
 
 ```cpp
-int main()  { přikazy... }     // or
+int main()  { příkazy... }     // nebo
 int main(int argc, char* argv[]) { příkazy... }
 ```
 
-`argv` je pole `argc` řetězců z příkazové řádky.
-Dle konvencí , `main` vrací status `0` jestliže je úspěšná, `1` nebo vyšíí číslo pokud nastala chyba.
+`argv` je pole řetězců `argc` z příkazové řádky.
+Dle konvencí , funkce `main` vrací status `0` jestliže je úspěšná, `1` nebo vyšíí při neúspěchu.
 
-Funkce se stejným jménem mohou mít jiné parametry a jsou tzv. přetížené.
+Funkce se stejným jménem mohou mít jiné parametry, pak jsou tzv. přetížené.
 Operátory mimo `::` `.` `.*` `?:` mohou být přetížené. Pořadí priority není ovlivněno.
 Nelze vytvořit nové operátory.
 
-## Expressions
+## Expressions - Výrazy
 
-Operators are grouped by precedence, highest first. Unary operators and assignment evaluate right to left. All
-others are left to right. Precedence does not affect order of evaluation, which is undefined. There are no run time
-checks for arrays out of bounds, invalid pointers, etc.
+Operátory jsou seskupeny podle priority, nejvyšší jako první. Unární operátory a přiřazení se vyhodnocují zprava doleva.
+Všechna ostatní zleva doprava. Priorita nemá vliv na pořadí hodnocení, které není definované.
+Neexistují žádné provozní kontroly pole mimo meze, neplatné ukazatele atd.
 
 ```cpp
-T::X                        // Název X definován ve třídě T
-N::X                        // Název X definován ve jmenném prostoru N
+T::X                        // Název X definovaný ve třídě T
+N::X                        // Název X definovaný ve jmenném prostoru N
 ::X                         // Globalní název X
 
 t.x                         // Člen x struktury nebo třídy t
@@ -183,22 +184,22 @@ static_cast< T>(x)          // Převádí x na T, bez kontroly
 reinterpret_cast< T>(x)     // interpretuje bity x jako T
 const_cast< T>(x)           // Převádí x na stejný typ T jen odebere modifikátor const
 
-sizeof x                    // Number of bytes used to represent object x
-sizeof(T)                   // Number of bytes to represent type T
-++x                         // Add 1 to x, evaluates to new value (prefix)
---x                         // Subtract 1 from x, evaluates to new value
-~x                          // Bitwise complement of x
-!x                          // true if x is 0, else false (1 or 0 in C)
--x                          // Unary minus
-+x                          // Unary plus (default)
-&x                          // Address of x
-*p                          // Contents of address p (*&x equals x)
-new T                       // Address of newly allocated T object
-new T(x, y)                 // Address of a T initialized with x, y
-new T[x]                    // Address of allocated n-element array of T
-delete p                    // Destroy and free object at address p
-delete[] p                  // Destroy and free array of objects at p
-(T) x                       // Convert x to T (obsolete, use .._cast<T>(x))
+sizeof x                    // Počet bajtů použitých k reprezentaci objektu x
+sizeof(T)                   // Počet bajtů použitých k reprezentaci typu T
+++x                         // Přičtení 1 k x, vyhodnocení nové hodnoty (prefix)
+--x                         // Odečtení 1 od x, vyhodnocení nové hodnoty
+~x                          // Bitový doplněk x
+!x                          // Platí (pravda) když x je 0, jinak nepravda (1 nebo 0 v C)
+-x                          // Unární mínus
++x                          // Unární plus (výchozí)
+&x                          // Adresa x (neboli x je alias)
+*p                          // Obsah adresy p (*&x je stejný jako x)
+new T                       // Adresa nově alokovaného objektu typu T
+new T(x, y)                 // Adresa T inicializovaného s x a y
+new T[x]                    // Adresa alokovaného pole elementů T
+delete p                    // Zničení a uvolnění objektů na adrese p
+delete[] p                  // Zničení a uvolnění pole objektů p
+(T) x                       // Konverze x na T (zastaralé, používá se .._cast<T>(x))
 
 x * y                       // Multiply
 x / y                       // Divide (integers round toward 0)
