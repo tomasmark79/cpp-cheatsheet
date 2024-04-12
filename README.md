@@ -196,35 +196,35 @@ sizeof(T)                   // Počet bajtů použitých k reprezentaci typu T
 *p                          // Obsah adresy p (*&x je stejný jako x)
 new T                       // Adresa nově alokovaného objektu typu T
 new T(x, y)                 // Adresa T inicializovaného s x a y
-new T[x]                    // Adresa alokovaného pole elementů T
+new T[x]                    // Adresa alokovaného pole prvků T
 delete p                    // Zničení a uvolnění objektů na adrese p
 delete[] p                  // Zničení a uvolnění pole objektů p
 (T) x                       // Konverze x na T (zastaralé, používá se .._cast<T>(x))
 
-x * y                       // Multiply
-x / y                       // Divide (integers round toward 0)
-x % y                       // Modulo (result has sign of x)
+x * y                       // Násobení
+x / y                       // Dělení (celá čísla zaokrouhlená k 0)
+x % y                       // Modulo (výsledek obdrží znaménko od x)
 
-x + y                       // Add, or \&x[y]
-x - y                       // Subtract, or number of elements from *x to *y
-x << y                      // x shifted y bits to left (x * pow(2, y))
-x >> y                      // x shifted y bits to right (x / pow(2, y))
+x + y                       // Přičtení, nebo může být posun v poli \&x[y]
+x - y                       // Odečtení, nebo počet prvků z *x do *y
+x << y                      // posun x o y bitů doleva (x * pow(2, y))
+x >> y                      // posun x o y bitů doprava (x / pow(2, y))
 
-x < y                       // Less than
-x <= y                      // Less than or equal to
-x > y                       // Greater than
-x >= y                      // Greater than or equal to
+x < y                       // Menší než
+x <= y                      // Menší než, nebo se rovná
+x > y                       // Větší než
+x >= y                      // Větší než, nebo se rovná
 
-x & y                       // Bitwise and (3 & 6 is 2)
-x ^ y                       // Bitwise exclusive or (3 ^ 6 is 5)
-x | y                       // Bitwise or (3 | 6 is 7)
-x && y                      // x and then y (evaluates y only if x (not 0))
-x || y                      // x or else y (evaluates y only if x is false (0))
-x = y                       // Assign y to x, returns new value of x
-x += y                      // x = x + y, also -= *= /= <<= >>= &= |= ^=
-x ? y : z                   // y if x is true (nonzero), else z
-throw x                     // Throw exception, aborts if not caught
-x , y                       // evaluates x and y, returns y (seldom used)
+x & y                       // Bitové AND (3 & 6 je 2)
+x ^ y                       // Bitové exklusuvní OR (3 ^ 6 je 5)
+x | y                       // Bitové OR (3 | 6 je 7)
+x && y                      // x AND pak y (vyhodnocení y jen pokud x (není 0))
+x || y                      // x OR jinak y (vyhodnocení y jen když x je nepravda (0))
+x = y                       // Přiřazení y k x, vrácení nové hodnoty do x
+x += y                      // x = x + y, také -= *= /= <<= >>= &= |= ^=
+x ? y : z                   // y když x je pravda (nenulová hodnota), jinak z
+throw x                     // Vyvolání vyjímky, přerušení, pokud není zachycena
+x , y                       // vyhodnocení x a y, vrací y (zřídka používané)
 ```
 
 ## Classes - Třídy
