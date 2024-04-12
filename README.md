@@ -574,4 +574,4 @@ future<int> fut =         // result of async function
 cout << fut.get();        // get result of async function. Wait if needed.
 ```
 
-Tomáš Mark (c) 2024
+Překlad a doplnění některých dalších významů - Tomáš Mark (c) 2024
