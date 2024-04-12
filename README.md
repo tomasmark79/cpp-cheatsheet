@@ -520,36 +520,39 @@ cout << duration_cast<ms>(to - from)
 #include <thread>         // Hlavička thread
                           // Hardware vlákna (nebo 0 pro neznámé)
 unsigned c = std::thread::hardware_concurrency();
-auto lambdaFn = [](){     // Lambda funkce použitá pro tělo vlákna
+auto lambdaFn = []() {    // Lambda funkce použitá pro tělo vlákna
     cout << "Ahoj vícevláknově";
 };
 thread t(lambdaFn);       // Vytvoření a spuštění vlákna pomocí lambda funkce
 t.join();                 // Čekání hlavního vlákna na dokončení vlákna t
 
 // --- shared resource example --- // --- příklady sdílených zdrojů ---
-mutex mut;                         // Mutex pro synchronizaci
-condition_variable cond;           // Sdílená podmíněná proměnná
-const char* sharedMes              // Sdílený zdroj
-  = nullptr;
-auto pingPongFn =                  // Tělo vlákna (lambda funkce). Tisk zprávy někoho jiného
-  [&](const char* mes)
-  {
-    while (true){
-      unique_lock<mutex> lock(mut);// Uzamknutí mutexu
-      do {                
-        cond.wait(lock, [&](){     // Čekání na výsledek pravda podmíněné proměnné
-                                   // Odemknutí v průběhu čekání což umožní ostatním vláknům modifikování
-          return sharedMes != mes; // Čekáme na změnu sharedMes, která není stejná jako mes.
-        });
-      } while (sharedMes == mes);  // Zabraňuje falešnému probuzení
-      cout << sharedMes << endl;
-      sharedMes = mes;       
-      lock.unlock();               // Již není třeba mít zamčeno
-      cond.notify_all();           // Probudit všechna vlákna a upozornit na změnu podmínek
+mutex mut;                // Mutex pro synchronizaci
+condition_variable cond;  // Sdílená podmíněná proměnná
+const char *sharedMes     // Sdílený zdroj
+    = nullptr;
+auto pingPongFn =         // Tělo vlákna (lambda funkce). Tisk zprávy někoho jiného
+    [&](const char *mes)
+{
+    while (true)
+    {
+        unique_lock<mutex> lock(mut);   // Uzamknutí mutexu
+        do
+        {
+            cond.wait(lock, [&]() {     // Čekání na výsledek pravda podmíněné proměnné
+                                        // [&] přístup k proměnným z okolí (z vnějšího kontextu)
+                                        // Odemknutí v průběhu čekání což umožní ostatním vláknům modifikování
+                return sharedMes != mes;// Čekáme na změnu sharedMes, která není stejná jako mes.
+            });
+        } while (sharedMes == mes);     // Zabraňuje falešnému probuzení
+        cout << sharedMes << endl;
+        sharedMes = mes;
+        lock.unlock();                  // Již není třeba mít zamčeno
+        cond.notify_all();              // Probudit všechna vlákna a upozornit na změnu podmínek
     }
-  };
+};
 sharedMes = "ping";
-thread t1(pingPongFn, sharedMes);  // Zahájení příkladu s třemi konkurenčními vlákny
+thread t1(pingPongFn, sharedMes);       // Zahájení příkladu s třemi konkurenčními vlákny
 thread t2(pingPongFn, "pong");
 thread t3(pingPongFn, "boing");
 ```
