@@ -1,9 +1,8 @@
 # C++ RYCHLÁ REFERENCE / C++ TAHÁK
 
 Tento výborný tahák je forknutý z: https://github.com/mortennobel/cpp-cheatsheet
-Přišlo mi to velmi užitečné a tak jsem vytvořil pro doplnění český překlad komentářů.
 
-Jakékoliv další připomínky a návrhy jsou velmi vítány.
+Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další připomínky a návrhy jsou velmi vítány.
 
 Užívejte.
 
