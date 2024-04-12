@@ -1,9 +1,11 @@
 # C++ RYCHLÁ REFERENCE / C++ TAHÁK
 
-Český překlad komentářů Tomáš Mark.
-Dokument je k dispozici v repositáři na https://github.com/tomasmark79/cpp-cheatsheet.
+Tento výborný tahák je forknutý z: https://github.com/mortennobel/cpp-cheatsheet
+Přišlo mi to velmi užitečné a tak jsem vytvořil pro doplnění český překlad komentářů.
+
 Jakékoliv další připomínky a návrhy jsou velmi vítány.
-Původní zdroj v angličtině najdete v popisu u forku.
+
+Užívejte.
 
 ## Preprocessor - Preprocesor
 
@@ -571,3 +573,5 @@ future<int> fut =         // result of async function
 // do some other work 
 cout << fut.get();        // get result of async function. Wait if needed.
 ```
+
+Tomáš Mark (c) 2024
