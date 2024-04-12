@@ -1,10 +1,6 @@
 # C++ RYCHLÁ REFERENCE / C++ TAHÁK
 
-Tento výborný tahák je forknutý z: https://github.com/mortennobel/cpp-cheatsheet
-
 Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další připomínky a návrhy jsou velmi vítány.
-
-Užívejte.
 
 ## Preprocessor - Preprocesor
 
