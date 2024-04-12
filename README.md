@@ -343,7 +343,7 @@ r = dynamic_pointer_cast<B>(t); // Konverze t na shared_ptr<B>
 
 ```cpp
 #include <cmath>            // Hlavička cmath (jmenný prostor std)
-sin(x); cos(x); tan(x);     // Trig funkce, x (double) jsou v radiánech
+sin(x); cos(x); tan(x);     // Trigonometrické funkce, x (double) jsou v radiánech
 asin(x); acos(x); atan(x);  // Inverze
 atan2(y, x);                // atan(y/x)
 sinh(x); cosh(x); tanh(x);  // Hyperbolické sin, cos, tan
@@ -353,42 +353,42 @@ ceil(x); floor(x);          // Zaokrouhlení nahoru, dolů (jako double)
 fabs(x); fmod(x, y);        // Absolutní hodnota, x modulo y
 ```
 
-## `assert.h`, `cassert` (Debugging Aid)
+## `assert.h`, `cassert` (Debugging Aid) - Debugovací první pomoc
 
 ```cpp
-#include <cassert>        // Include iostream (std namespace)
-assert(e);                // If e is false, print message and abort
-#define NDEBUG            // (before #include <assert.h>), turn off assert
+#include <cassert>        // Hlavička iostream (jmenný prostor std)
+assert(e);                // Jestliže e je nepravda, následuje vytisknutí zprávy a ukončení
+#define NDEBUG            // (před #include <assert.h>), vypnutí assert
 ```
 
-## `iostream.h`, `iostream` (Replaces `stdio.h`)
+## `iostream.h`, `iostream` (Replaces `stdio.h`) - iostream nahrazuje stdio.h
 
 ```cpp
-#include <iostream>         // Include iostream (std namespace)
-cin >> x >> y;              // Read words x and y (any type) from stdin
-cout << "x=" << 3 << endl;  // Write line to stdout
-cerr << x << y << flush;    // Write to stderr and flush
+#include <iostream>         // Hlavička iostream (jmenný prostor std)
+cin >> x >> y;              // Čtení slov x a y (jakéhokoliv typu) z proudu stdin
+cout << "x=" << 3 << endl;  // Vypsání řádky do proudu stdout
+cerr << x << y << flush;    // Vypsání do proudu stderr a vyčištění
 c = cin.get();              // c = getchar();
-cin.get(c);                 // Read char
-cin.getline(s, n, '\n');    // Read line into char s[n] to '\n' (default)
-if (cin)                    // Good state (not EOF)?
-                            // To read/write any type T:
-istream& operator>>(istream& i, T& x) {i >> ...; x=...; return i;}
-ostream& operator<<(ostream& o, const T& x) {return o << ...;}
+cin.get(c);                 // Čtení znaku
+cin.getline(s, n, '\n');    // Čtení řádky do typu char s[n] do konce řádku '\n' (výchozí)
+if (cin)                    // Dobrý stav (nikoliv EOF)?
+                            // Ke čtení/zápisu libovolného typu T:
+istream& operator>>(istream& i, T& x) {i >> ...; x=...; vrácení i;}
+ostream& operator<<(ostream& o, const T& x) {vrácení o << ...;}
 ```
 
-## `fstream.h`, `fstream` (File I/O works like `cin`, `cout` as above)
+## `fstream.h`, `fstream` (File I/O works like `cin`, `cout` as above) - pracuje stejně jako cin, cout zmíněný výše
 
 
 ```cpp
-#include <fstream>          // Include filestream (std namespace)
-ifstream f1("filename");    // Open text file for reading
-if (f1)                     // Test if open and input available
-    f1 >> x;                // Read object from file
-f1.get(s);                  // Read char or line
-f1.getline(s, n);           // Read line into string s[n]
-ofstream f2("filename");    // Open file for writing
-if (f2) f2 << x;            // Write to file
+#include <fstream>          // Hlavička filestream (jmenný prostor std)
+ifstream f1("filename");    // Otevření textového souboru pro čtení
+if (f1)                     // Test otevření a možnosti vstupu
+    f1 >> x;                // Čtení objektu ze souboru
+f1.get(s);                  // Čtení znaku, nebo řádky
+f1.getline(s, n);           // Čtení řádky do řetězce (string s[n])
+ofstream f2("filename");    // Otevření souboru pro zápis
+if (f2) f2 << x;            // Zápis do souboru
 ```
 
 ## `string` (Variable sized character array)
