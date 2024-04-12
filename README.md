@@ -137,24 +137,26 @@ inline f();                 // Optimalizace rychlosti
 f() { statements; }         // Definice funkce (musí být globální)
 T operator+(T x, T y);      // a+b (Jestliže jsou typu T) volají operator+(a, b)
 T operator-(T x);           // -a volá funkci operator-(a)
-T operator++(int);          // postfix ++ or -- (parametr je ignorován)
-extern "C" {void f();}      // f() bulo kompilováno v C
+T operator++(int);          // postfix ++ nebo -- (parametr je ignorován)
+extern "C" {void f();}      // f() bylo kompilováno v C
 ```
 
-Function parameters and return values may be of any type. A function must either be declared or defined before
-it is used. It may be declared first and defined later. Every program consists of a set of a set of global variable
-declarations and a set of function definitions (possibly in separate files), one of which must be:
+Parametry funkcí a návratové hodnoty mohou být libovolného typu. Funkce musí být buď deklarována,
+nebo definována dříve, než se začne používat. Může být nejprve deklarována a definován později.
+Každý program se skládá ze sady globálních proměnných deklarací a sady definic funkcí
+(případně v samostatných souborech), z nichž jedna musí být:
 
 ```cpp
-int main()  { statements... }     // or
-int main(int argc, char* argv[]) { statements... }
+int main()  { přikazy... }     // or
+int main(int argc, char* argv[]) { příkazy... }
 ```
 
-`argv` is an array of `argc` strings from the command line.
-By convention, `main` returns status `0` if successful, `1` or higher for errors.
+`argv` je pole `argc` řetězců z příkazové řádky.
+Dle konvencí , `main` vrací status `0` jestliže je úspěšná, `1` nebo vyšíí číslo pokud nastala chyba.
 
-Functions with different parameters may have the same name (overloading). Operators except `::` `.` `.*` `?:` may be overloaded.
-Precedence order is not affected. New operators may not be created.
+Funkce se stejným jménem mohou mít jiné parametry a jsou tzv. přetížené.
+Operátory mimo `::` `.` `.*` `?:` mohou být přetížené. Pořadí priority není ovlivněno.
+Nelze vytvořit nové operátory.
 
 ## Expressions
 
