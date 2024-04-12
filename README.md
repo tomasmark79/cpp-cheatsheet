@@ -308,34 +308,34 @@ shared_ptr<int> x;          // Prázdný chytrý sdílený ukazatel shared_ptr n
 x = make_shared<int>(12);   // Alokace hodnoty 12 na haldě.
 shared_ptr<int> y = x;      // Kopírování shared_ptr, implicitně změní počet odkazů na 2.
 cout << *y;                 // Dereference y k vytištění '12'
-if (y.get() == x.get()) {   // Raw pointers (here x == y)
-    cout << "Same";  
+if (y.get() == x.get()) {   // Vrácení klasického ukazatele (zde x == y)
+    cout << "Stejné";  
 }  
-y.reset();                  // Eliminate one owner of object
+y.reset();                  // Eliminuje vlastníka jednoho objektu
 if (y.get() != x.get()) { 
-    cout << "Different";  
+    cout << "Rozdílné";  
 }  
-if (y == nullptr) {         // Can compare against nullptr (here returns true)
-    cout << "Empty";  
+if (y == nullptr) {         // Porovnávání s nullptr je možné (vracející pravdu)
+    cout << "Prázdné";  
 }  
-y = make_shared<int>(15);   // Assign new value
-cout << *y;                 // Dereference x to print '15'
-cout << *x;                 // Dereference x to print '12'
-weak_ptr<int> w;            // Create empty weak pointer
-w = y;                      // w has weak reference to y.
-if (shared_ptr<int> s = w.lock()) { // Has to be copied into a shared_ptr before usage
+y = make_shared<int>(15);   // Přířazení nové hodnoty
+cout << *y;                 // Dereference x k vytištění '15'
+cout << *x;                 // Dereference x k vytištění '12'
+weak_ptr<int> w;            // Vytvoření prázdného slabého ukazatele
+w = y;                      // w má slabou referenci na y.
+if (shared_ptr<int> s = w.lock()) { // Má být skopírovaný do shared_ptr před použitím
     cout << *s;
 }
-unique_ptr<int> z;          // Create empty unique pointers
+unique_ptr<int> z;          // Vytvoření prázdného unikátního ukazatele
 unique_ptr<int> q;
-z = make_unique<int>(16);   // Allocate int (16) on heap. Only one reference allowed.
-q = move(z);                // Move reference from z to q.
+z = make_unique<int>(16);   // Alokace celého čísla (16) na haldě. Povolená je jen jedna reference.
+q = move(z);                // Přesun reference ze z na q.
 if (z == nullptr){
     cout << "Z null";
 }
 cout << *q;
 shared_ptr<B> r;
-r = dynamic_pointer_cast<B>(t); // Converts t to a shared_ptr<B>
+r = dynamic_pointer_cast<B>(t); // Konverze t na shared_ptr<B>
 
 ```
 
