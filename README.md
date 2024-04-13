@@ -100,7 +100,7 @@ else if (y) b;              // Jestliže není x a y (volitelné, lze opakovat)
 else c;                     // Jestliže není x a není y (volitelné)
 
 while (x) a;                // Vejdi a opakuj pouze pokud x je pravda
-                            (pokud x není 0)
+                            // (pokud x není 0)
 
 for (x; y; z) a;            // Ekvivalent k: x; while(y) {a; z;}
 
