@@ -8,7 +8,7 @@ Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další 
 ```cpp
                             // Komentář do konce řádku
                             /* Víceřádkový komentář */
-#include  <stdio.h>         // Vložení standardního hlavičkového souboru
+#include <stdio.h>          // Vložení standardního hlavičkového souboru
 #include "myfile.h"         // Vložení s. h. souboru v akt. pracovní složce
 #define X jsem text         // Nahradí X textem jsem text
 #define F(a,b) a+b          // Nahradí F(1,2) s 1+2
@@ -442,32 +442,35 @@ T d[10]; vector<T> e(d, d+10);      // e je inicializován d
 ```
 
 ## `deque` (Array stack queue)
+## `deque` (Pole zásobníku fronty)
 
-`deque<T>` is like `vector<T>`, but also supports:
+`deque<T>` je podobná jako `vector<T>`, ale také podporuje:
 
 ```cpp
-#include <deque>          // Include deque (std namespace)
-a.push_front(x);          // Puts x at a[0], shifts elements toward back
-a.pop_front();            // Removes a[0], shifts toward front
+#include <deque>          // Hlavička deque (jmenný prostor std)
+a.push_front(x);          // Vkládá x na a[0] a posouvá prvky dozadu
+a.pop_front();            // Odebírá a[0] a posouvá prvky dopředu
 ```
 
 ## `utility` (pair)
+## `utility` (pár)
 
 ```cpp
-#include <utility>        // Include utility (std namespace)
-pair<string, int> a("hello", 3);  // A 2-element struct
-a.first;                  // "hello"
-a.second;                 // 3
+#include <utility>               // Hlavička utility (jmenný prostor std)
+pair<string, int> a("ahoj", 3);  // 2-prvková struktura
+a.first;                         // "ahoj"
+a.second;                        // 3
 ```
 
 ## `map` (associative array - usually implemented as binary search trees - avg. time complexity: O(log n))
+## `map` (asociativní pole - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
 
 ```cpp
-#include <map>            // Include map (std namespace)
-map<string, int> a;       // Map from string to int
-a["hello"] = 3;           // Add or replace element a["hello"]
+#include <map>            // Hlavička map (jmenný prostor std)
+map<string, int> a;       // Mapa z řetězce po celé číslo
+a["ahoj"] = 3;            // Přidání nebo nahrazení prvku a["ahoj"]
 for (auto& p:a)
-    cout << p.first << p.second;  // Prints hello, 3
+    cout << p.first << p.second;  // Tisk ahoj, 3
 a.size();                 // 1
 ```
 
