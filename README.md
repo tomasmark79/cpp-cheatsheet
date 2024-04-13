@@ -557,10 +557,10 @@ thread t2(pingPongFn, "pong");
 thread t3(pingPongFn, "boing");
 ```
 
-## `future` (thread support library)
+## `future` (thread support library) - `future` (knihovna pro podporu vláken)
 ```cpp
-#include <future>         // Include future
-function<int(int)> fib =  // Create lambda function
+#include <future>         // Hlavička future
+function<int(int)> fib =  // Vytvoření lambda funkce
   [&](int i){
     if (i <= 1){
       return 1;
@@ -568,10 +568,10 @@ function<int(int)> fib =  // Create lambda function
     return fib(i-1) 
          + fib(i-2);
   };
-future<int> fut =         // result of async function
-  async(launch::async, fib, 4); // start async function in other thread
-// do some other work 
-cout << fut.get();        // get result of async function. Wait if needed.
+future<int> fut =         // Výsledek asynchronní funkce
+  async(launch::async, fib, 4); // Zahájení asynchronní funkce v dalším vlákně
+// vykonej nějakou práci
+cout << fut.get();        // Získání výsledku z asynchronní funkce. Vyčkávání pokud je potřebné.
 ```
 
 Překlad a doplnění některých dalších významů - Tomáš Mark (c) 2024
