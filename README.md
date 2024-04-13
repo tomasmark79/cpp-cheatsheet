@@ -389,40 +389,42 @@ if (f2) f2 << x;            // Zápis do souboru
 ```
 
 ## `string` (Variable sized character array)
+## `string` (Proměnlivě veliké pole znaků)
 
 ```cpp
-#include <string>         // Include string (std namespace)
-string s1, s2="hello";    // Create strings
-s1.size(), s2.size();     // Number of characters: 0, 5
-s1 += s2 + ' ' + "world"; // Concatenation
-s1 == "hello world"       // Comparison, also <, >, !=, etc.
+#include <string>         // Hlavička string (jmenný prostor std)
+string s1, s2="hello";    // Vytvoření řetězce
+s1.size(), s2.size();     // Počet znaků: 0, 5
+s1 += s2 + ' ' + "world"; // Spojování
+s1 == "hello world"       // Porovnávání, také <, >, !=, atd.
 s1[0];                    // 'h'
-s1.substr(m, n);          // Substring of size n starting at s1[m]
-s1.c_str();               // Convert to const char*
-s1 = to_string(12.05);    // Converts number to string
-getline(cin, s);          // Read line ending in '\n'
+s1.substr(m, n);          // Sub řetězec o velikosti n začínající na s1[m]
+s1.c_str();               // Konverze na const char*
+s1 = to_string(12.05);    // Konverze čísla na řetězec string
+getline(cin, s);          // Čtení řádky zakončené '\n'
 ```
 
 ## `vector` (Variable sized array/stack with built in memory allocation)
+## `vector` (Proměnlivě veliké pole/zásobník s vestavěnou správou paměti)
 
 ```cpp
-#include <vector>         // Include vector (std namespace)
-vector<int> a(10);        // a[0]..a[9] are int (default size is 0)
-vector<int> b{1,2,3};        // Create vector with values 1,2,3
-a.size();                 // Number of elements (10)
-a.push_back(3);           // Increase size to 11, a[10]=3
+#include <vector>         // Hlavička vector (jmenný prostor std)
+vector<int> a(10);        // a[0]..a[9] jsou int (výchozí velikost je 0)
+vector<int> b{1,2,3};     // Vytvoření vektoru s hodnotami 1,2,3
+a.size();                 // Počet prvků (10)
+a.push_back(3);           // Zvětšení velikosti na 11, a[10]=3
 a.back()=4;               // a[10]=4;
-a.pop_back();             // Decrease size by 1
+a.pop_back();             // Zmenšení velikosti o jeden prvek
 a.front();                // a[0];
-a[20]=1;                  // Crash: not bounds checked
-a.at(20)=1;               // Like a[20] but throws out_of_range()
+a[20]=1;                  // Chyba: bez kontroly hranic
+a.at(20)=1;               // Podobné jako a[20] ale s vyjímkováním throws out_of_range()
 for (int& p : a)
-  p=0;                    // C++11: Set all elements of a to 0
+  p=0;                    // C++11: Nastav všechny prvky a na 0
 for (vector<int>::iterator p=a.begin(); p!=a.end(); ++p)
-  *p=0;                   // C++03: Set all elements of a to 0
-vector<int> b(a.begin(), a.end());  // b is copy of a
-vector<T> c(n, x);        // c[0]..c[n-1] init to x
-T d[10]; vector<T> e(d, d+10);      // e is initialized from d
+  *p=0;                   // C++03: Nastav všechny prvky a na 0
+vector<int> b(a.begin(), a.end());  // b je kopií a
+vector<T> c(n, x);        // c[0]..c[n-1] inicializace na x
+T d[10]; vector<T> e(d, d+10);      // e je inicializován d
 ```
 
 ## `deque` (Array stack queue)
@@ -568,7 +570,7 @@ function<int(int)> fib =  // Vytvoření lambda funkce
     return fib(i-1) 
          + fib(i-2);
   };
-future<int> fut =         // Výsledek asynchronní funkce
+future<int> fut =               // Výsledek asynchronní funkce
   async(launch::async, fib, 4); // Zahájení asynchronní funkce v dalším vlákně
 // vykonej nějakou práci
 cout << fut.get();        // Získání výsledku z asynchronní funkce. Vyčkávání pokud je potřebné.
