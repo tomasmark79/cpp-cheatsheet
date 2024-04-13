@@ -2,7 +2,8 @@
 
 Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další připomínky a návrhy jsou velmi vítány.
 
-## Preprocessor - Preprocesor
+## Preprocessor
+## Preprocesor
 
 ```cpp
                             // Komentář do konce řádku
@@ -19,7 +20,8 @@ Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další 
 #endif                      // Je vyžadováno po #if, #ifdef
 ```
 
-## Literals - Literály
+## Literals
+## Literály
 
 ```cpp
 255, 0377, 0xff             // Celá čísla (decimal, octal, hex)
@@ -33,7 +35,8 @@ true, false                 // Boolova konstanta 1 a 0
 nullptr                     // Typ ukazatele s adresou 0
 ```
 
-## Declarations - Deklarace
+## Declarations
+## Deklarace
 
 ```cpp
 int x;                      // Deklarace x jako celé číslo (nedefinovaná hodnota)
@@ -80,7 +83,8 @@ auto& s = singleton::instance();
                             // Deklarace s dle výsledku jako reference
 ```
 
-## STORAGE Classes - Úložné třídy
+## STORAGE Classes
+## ÚLOŽNÉ třídy
 
 ```cpp
 int x;                      // Auto (pamět existuje pouze uvnitř pole působnosti)
@@ -88,7 +92,8 @@ static int x;               // Globální životnost i když je deklarována v m
 extern int x;               // Pouze informace, deklarované v jiném prostoru
 ```
 
-## Statements - Příkazy
+## Statements
+## Příkazy
 
 ```cpp
 x=y;                        // Každý výraz je příkazem
@@ -124,7 +129,8 @@ catch (T t) { b; }          // Při vyjímce T skoč sem
 catch (...) { c; }          // Při jakékéliv vyjímce skoč sem
 ```
 
-## Functions - Funkce
+## Functions
+## Funkce
 
 ```cpp
 int f(int x, int y);        // f je funkce přijímající 2 celá čísla a vracející celé číslo
@@ -156,7 +162,8 @@ Funkce se stejným jménem mohou mít jiné parametry, pak jsou tzv. přetížen
 Operátory mimo `::` `.` `.*` `?:` mohou být přetížené. Pořadí priority není ovlivněno.
 Nelze vytvořit nové operátory.
 
-## Expressions - Výrazy
+## Expressions
+## Výrazy
 
 Operátory jsou seskupeny podle priority, nejvyšší jako první. Unární operátory a přiřazení se vyhodnocují zprava doleva.
 Všechna ostatní zleva doprava. Priorita nemá vliv na pořadí hodnocení, které není definované.
@@ -224,7 +231,8 @@ throw x                     // Vyvolání vyjímky, přerušení, pokud není za
 x , y                       // vyhodnocení x a y, vrací y (zřídka používané)
 ```
 
-## Classes - Třídy
+## Classes
+## Třídy
 
 ```cpp
 class T {                   // Nový typ
@@ -275,7 +283,8 @@ class X: public virtual T {};
 
 Všechny třídy mají výchozí kopírovací konstruktor, přiřazovací operátor a destruktor, které provádějí související operace na každém datové složce a na každé rodičovské třídě, tak jak je uvedeno výše. K dispozici je také výchozí konstruktor bez argumentů (vyžadován k vytvoření polí), pokud třída nemá žádný konstruktor. Konstruktory, přiřazení a destruktory nedědí.
 
-## Templates - Šablony
+## Templates
+## Šablony
 
 ```cpp
 template <class T> T f(T t);// Přetíží funkci f pro všechny typy
@@ -288,7 +297,8 @@ template <class T, class U=T, int n=0>
                             // Třída s implicitním 2. a 3. parametrem
 ```
 
-## Namespaces - Jmenné prostory
+## Namespaces
+## Jmenné prostory
 
 ```cpp
 namespace N {class T {};}   // Zakrytí T v prostoru N
@@ -296,7 +306,8 @@ N::T t;                     // Použití jména T v prostoru N
 using namespace N;          // Udělání T viditelné bez N:: viz. cout;-)
 ```
 
-## `memory` (dynamic memory management) - pamět (správa dynamické paměti)
+## `memory` (dynamic memory management)
+## `memory` (správa dynamické paměti)
 
 ```cpp
 #include <memory>           // Vložení hlavičky <memory> (jmenný prostor std)
@@ -336,7 +347,8 @@ r = dynamic_pointer_cast<B>(t); // Konverze t na shared_ptr<B>
 
 ```
 
-## `math.h`, `cmath` (floating point math) - matematika s plovoucí desetinnou čárkou
+## `math.h`, `cmath` (floating point math)
+## `math.h`, `cmath` (plovoucí čárka)
 
 ```cpp
 #include <cmath>            // Hlavička cmath (jmenný prostor std)
@@ -350,7 +362,8 @@ ceil(x); floor(x);          // Zaokrouhlení nahoru, dolů (jako double)
 fabs(x); fmod(x, y);        // Absolutní hodnota, x modulo y
 ```
 
-## `assert.h`, `cassert` (Debugging Aid) - Debugovací první pomoc
+## `assert.h`, `cassert` (Debugging Aid)
+## `assert.h`, `cassert` (Debugovací pomoc)
 
 ```cpp
 #include <cassert>        // Hlavička iostream (jmenný prostor std)
@@ -358,7 +371,8 @@ assert(e);                // Jestliže e je nepravda, následuje vytisknutí zpr
 #define NDEBUG            // (před #include <assert.h>), vypnutí assert
 ```
 
-## `iostream.h`, `iostream` (Replaces `stdio.h`) - iostream nahrazuje stdio.h
+## `iostream.h`, `iostream` (Replaces `stdio.h`)
+## `iostream.h`, `iostream` (Nahrazuje `stdio.h`)
 
 ```cpp
 #include <iostream>         // Hlavička iostream (jmenný prostor std)
@@ -374,8 +388,8 @@ istream& operator>>(istream& i, T& x) {i >> ...; x=...; vrácení i;}
 ostream& operator<<(ostream& o, const T& x) {vrácení o << ...;}
 ```
 
-## `fstream.h`, `fstream` (File I/O works like `cin`, `cout` as above) - pracuje stejně jako cin, cout zmíněný výše
-
+## `fstream.h`, `fstream` (File I/O works like `cin`, `cout` as above)
+## `fstream.h`, `fstream` (Soubor I/O pracuje stejně jako cin, cout zmíněný výše)
 
 ```cpp
 #include <fstream>          // Hlavička filestream (jmenný prostor std)
@@ -405,7 +419,7 @@ getline(cin, s);          // Čtení řádky zakončené '\n'
 ```
 
 ## `vector` (Variable sized array/stack with built in memory allocation)
-## `vector` (Proměnlivě veliké pole/zásobník s vestavěnou správou paměti)
+## `vector` (Pole/Zásobník s proměnlivou velikostí s vestavěnou správou paměti)
 
 ```cpp
 #include <vector>         // Hlavička vector (jmenný prostor std)
