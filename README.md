@@ -466,75 +466,83 @@ a.second;                        // 3
 ## `map` (asociativní pole - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
 
 ```cpp
-#include <map>            // Hlavička map (jmenný prostor std)
-map<string, int> a;       // Mapa z řetězce po celé číslo
-a["ahoj"] = 3;            // Přidání nebo nahrazení prvku a["ahoj"]
+#include <map>                    // Hlavička map (jmenný prostor std)
+map<string, int> a;               // Mapa z řetězce po celé číslo
+a["ahoj"] = 3;                    // Přidání nebo nahrazení prvku a["ahoj"]
 for (auto& p:a)
     cout << p.first << p.second;  // Tisk ahoj, 3
-a.size();                 // 1
+a.size();                         // 1
 ```
 
 ## `unordered_map` (associative array - usually implemented as hash table - avg. time complexity: O(1))
+## `unordered_map` (asociativní pole - obvykle používané jako hash tabulka - prům. čas. složitost: O(1))
 
 ```cpp
-#include <unordered_map>  // Include map (std namespace)
-unordered_map<string, int> a; // Map from string to int
-a["hello"] = 3;           // Add or replace element a["hello"]
+#include <unordered_map>        // Hlavička map (jmenný prostor std)
+unordered_map<string, int> a;   // Mapa z řetězce po celé číslo
+a["hello"] = 3;                 // Přidání nebo nahrazení prvku a["ahoj"]
 for (auto& p:a)
-    cout << p.first << p.second;  // Prints hello, 3
-a.size();                 // 1
+    cout << p.first << p.second;// Tisk ahoj, 3
+a.size();                       // 1
 ```
 
 ## `set` (store unique elements - usually implemented as binary search trees - avg. time complexity: O(log n))
+## `set` (uložení unikátních prvků - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
 
 ```cpp
-#include <set>            // Include set (std namespace)
-set<int> s;               // Set of integers
-s.insert(123);            // Add element to set
-if (s.find(123) != s.end()) // Search for an element
+#include <set>                  // Hlavička set (jmenný prostor std)
+set<int> s;                     // Set celých čísel
+s.insert(123);                  // Přidání prvku do setu
+if (s.find(123) != s.end())     // Hledání prvku
     s.erase(123);
-cout << s.size();         // Number of elements in set
+cout << s.size();               // Počet prvků v setu
 ```
 
 ## `unordered_set` (store unique elements - usually implemented as a hash set - avg. time complexity: O(1))
+## `unordered_set` (uložení unikátních prvků - obvykle používané jako hash tabulka - prům. čas. složitost: O(1))
 
 ```cpp
-#include <unordered_set>  // Include set (std namespace)
-unordered_set<int> s;     // Set of integers
-s.insert(123);            // Add element to set
-if (s.find(123) != s.end()) // Search for an element
+#include <unordered_set>      // Hlavička set (jmenný prostor std)
+unordered_set<int> s;         // Set celých čísel
+s.insert(123);                // Přidání prvku do setu
+if (s.find(123) != s.end())   // Hledání prvku
     s.erase(123);
-cout << s.size();         // Number of elements in set
+cout << s.size();             // Počet prvků v setu
 ```
 
 ## `algorithm` (A collection of 60 algorithms on sequences with iterators)
+## `algorithm` (Kolekce 60 algoritmů na posloupnosti s iterátory)
 
 ```cpp
-#include <algorithm>      // Include algorithm (std namespace)
-min(x, y); max(x, y);     // Smaller/larger of x, y (any type defining <)
-swap(x, y);               // Exchange values of variables x and y
-sort(a, a+n);             // Sort array a[0]..a[n-1] by <
-sort(a.begin(), a.end()); // Sort vector or deque
-reverse(a.begin(), a.end()); // Reverse vector or deque
+#include <algorithm>          // Hlavička algorithm (jmenný prostor std)
+min(x, y); max(x, y);         // Nejmenší/Největší prvek x, y (jakýkoliv typ definuje <)
+swap(x, y);                   // Prohození hodnot proměnných x a y
+sort(a, a+n);                 // Setřízení pole a[0]..a[n-1] pomocí <
+sort(a.begin(), a.end());     // Setřízení vektoru nebo deque (fronta typu zásobník)
+reverse(a.begin(), a.end());  // Otočit vector nebo deque (fronta typu zásobník)
 ```
 
 ## `chrono` (Time related library)
+## `chrono` (Knihovna související s časem)
+
 ```cpp
-#include <chrono>         // Include chrono
-using namespace std::chrono; // Use namespace
-auto from =               // Get current time_point
+#include <chrono>             // Hlavička chrono
+using namespace std::chrono;  // Použití jméného prostoru
+auto from =                   // Získání momentálního time_point
   high_resolution_clock::now();
-// ... do some work       
-auto to =                 // Get current time_point
+                              // ... prověď nějaké práce
+auto to =                     // Získání momentálního time_point
   high_resolution_clock::now();
-using ms =                // Define ms as floating point duration
+using ms =                    // Difinice ms jako trvání s přesností plovoucí čásrky
   duration<float, milliseconds::period>;
-                          // Compute duration in milliseconds
+                              // Výpočet trvání v milisekundách
 cout << duration_cast<ms>(to - from)
   .count() << "ms";
 ```
 
-## `thread` (Multi-threading library) - Více-vláknová knihovna
+## `thread` (Multi-threading library)
+## `thread` (Více-vláknová knihovna)
+
 ```cpp
 #include <thread>         // Hlavička thread
                           // Hardware vlákna (nebo 0 pro neznámé)
@@ -576,7 +584,8 @@ thread t2(pingPongFn, "pong");
 thread t3(pingPongFn, "boing");
 ```
 
-## `future` (thread support library) - `future` (knihovna pro podporu vláken)
+## `future` (Thread support library)
+## `future` (Knihovna pro podporu vláken)
 ```cpp
 #include <future>         // Hlavička future
 function<int(int)> fib =  // Vytvoření lambda funkce
