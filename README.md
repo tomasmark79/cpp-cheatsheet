@@ -1,6 +1,4 @@
-# C++ RYCHLÁ REFERENCE / C++ TAHÁK
-
-Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další připomínky a návrhy jsou velmi vítány.
+# C++ REFERENCE
 
 ## Preprocesor
 
