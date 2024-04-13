@@ -2,7 +2,7 @@
 
 Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další připomínky a návrhy jsou velmi vítány.
 
-## Preprocessor
+Preprocessor
 ## Preprocesor
 
 ```cpp
@@ -20,7 +20,7 @@ Vytvořil jsem pro doplnění český překlad komentářů. Jakékoliv další 
 #endif                      // Je vyžadováno po #if, #ifdef
 ```
 
-## Literals
+Literals
 ## Literály
 
 ```cpp
