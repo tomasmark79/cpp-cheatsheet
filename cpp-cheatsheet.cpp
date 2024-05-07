@@ -1,6 +1,6 @@
-# C++ REFERENCE
+// C++ REFERENCE
 
-## Preprocesor
+// Preprocesor
 
 							// Komentář do konce řádku
                             /* Víceřádkový komentář */
@@ -15,7 +15,7 @@
 #else                       // Volitelné (#ifndef X nebo #if !defined(X))
 #endif                      // Je vyžadováno po #if, #ifdef
 
-## Literály
+// Literály
 
 255, 0377, 0xff             // Celá čísla (decimal, octal, hex)
 2147483647L, 0x7fffffffl    // Long (32-bit) celá čísla
@@ -27,7 +27,7 @@
 true, false                 // Boolova konstanta 1 a 0
 nullptr                     // Typ ukazatele s adresou 0
 
-## Deklarace
+// Deklarace
 
 int x;                      // Deklarace x jako celé číslo (nedefinovaná hodnota)
 int x=255;                  // Deklarace a inicializace x na hodnotu 255
@@ -72,13 +72,13 @@ auto const param = config["param"];
 auto& s = singleton::instance();
                             // Deklarace s dle výsledku jako reference
 
-## ÚLOŽNÉ třídy
+// ÚLOŽNÉ třídy
 
 int x;                      // Auto (pamět existuje pouze uvnitř pole působnosti)
 static int x;               // Globální životnost i když je deklarována v místním rozsahu
 extern int x;               // Pouze informace, deklarované v jiném prostoru
 
-## Příkazy
+// Příkazy
 
 x=y;                        // Každý výraz je příkazem
 int x;                      // Deklarace je příkaz
@@ -112,7 +112,7 @@ try { a; }
 catch (T t) { b; }          // Při vyjímce T skoč sem
 catch (...) { c; }          // Při jakékéliv vyjímce skoč sem
 
-## Funkce
+// Funkce
 
 int f(int x, int y);        // f je funkce přijímající 2 celá čísla a vracející celé číslo
 void f();                   // f je procedura bez parametrů
@@ -125,26 +125,25 @@ T operator-(T x);           // -a volá funkci operator-(a)
 T operator++(int);          // postfix ++ nebo -- (parametr je ignorován)
 extern "C" {void f();}      // f() bylo kompilováno v C
 
-Parametry funkcí a návratové hodnoty mohou být libovolného typu. Funkce musí být buď deklarovaná,
-nebo definovaná dříve, než se začne používat. Může být nejprve deklarovaná a definovaná později.
-Každý program se skládá ze sady globálních proměnných deklarací a sady definic funkcí
-(mohou být v samostatných souborech), z nichž jedna funkce musí být:
+// Parametry funkcí a návratové hodnoty mohou být libovolného typu. Funkce musí být buď deklarovaná,
+// nebo definovaná dříve, než se začne používat. Může být nejprve deklarovaná a definovaná později.
+// Každý program se skládá ze sady globálních proměnných deklarací a sady definic funkcí
+// (mohou být v samostatných souborech), z nichž jedna funkce musí být:
 
 int main()  { příkazy... }     // nebo
 int main(int argc, char* argv[]) { příkazy... }
 
-`argv` je pole řetězců `argc` z příkazové řádky.
-Dle konvencí , funkce `main` vrací status `0` jestliže je úspěšná, `1` nebo vyšíí při neúspěchu.
+// `argv` je pole řetězců `argc` z příkazové řádky.
+// Dle konvencí , funkce `main` vrací status `0` jestliže je úspěšná, `1` nebo vyšíí při neúspěchu.
+// Funkce se stejným jménem mohou mít jiné parametry, pak jsou tzv. přetížené.
+// Operátory mimo `::` `.` `.*` `?:` mohou být přetížené. Pořadí priority není ovlivněno.
+// Nelze vytvořit nové operátory.
 
-Funkce se stejným jménem mohou mít jiné parametry, pak jsou tzv. přetížené.
-Operátory mimo `::` `.` `.*` `?:` mohou být přetížené. Pořadí priority není ovlivněno.
-Nelze vytvořit nové operátory.
+// Výrazy
 
-## Výrazy
-
-Operátory jsou seskupeny podle priority, nejvyšší jako první. Unární operátory a přiřazení se vyhodnocují zprava doleva.
-Všechna ostatní zleva doprava. Priorita nemá vliv na pořadí hodnocení, které není definované.
-Neexistují žádné provozní kontroly pole mimo meze, neplatné ukazatele atd.
+// Operátory jsou seskupeny podle priority, nejvyšší jako první. Unární operátory a přiřazení se vyhodnocují zprava doleva.
+// Všechna ostatní zleva doprava. Priorita nemá vliv na pořadí hodnocení, které není definované.
+// Neexistují žádné provozní kontroly pole mimo meze, neplatné ukazatele atd.
 
 T::X                        // Název X definovaný ve třídě T
 N::X                        // Název X definovaný ve jmenném prostoru N
@@ -206,7 +205,7 @@ x ? y : z                   // y když x je pravda (nenulová hodnota), jinak z
 throw x                     // Vyvolání vyjímky, přerušení, pokud není zachycena
 x , y                       // vyhodnocení x a y, vrací y (zřídka používané)
 
-## Třídy
+// Třídy
 
 class T {                   // Nový typ
 private:                    // Sekce přístupná jen pro metody T
@@ -253,9 +252,9 @@ class W: public T, public U {};
 class X: public virtual T {};
                             // Třídy zděděné ze třídy X mají stejného předka třídy T
 
-Všechny třídy mají výchozí kopírovací konstruktor, přiřazovací operátor a destruktor, které provádějí související operace na každém datové složce a na každé rodičovské třídě, tak jak je uvedeno výše. K dispozici je také výchozí konstruktor bez argumentů (vyžadován k vytvoření polí), pokud třída nemá žádný konstruktor. Konstruktory, přiřazení a destruktory nedědí.
+// Všechny třídy mají výchozí kopírovací konstruktor, přiřazovací operátor a destruktor, které provádějí související operace na každém datové složce a na každé rodičovské třídě, tak jak je uvedeno výše. K dispozici je také výchozí konstruktor bez argumentů (vyžadován k vytvoření polí), pokud třída nemá žádný konstruktor. Konstruktory, přiřazení a destruktory nedědí.
 
-## Šablony
+// Šablony
 
 template <class T> T f(T t);// Přetíží funkci f pro všechny typy
 template <class T> class X {// Třída s <parametrem> typu T 
@@ -266,13 +265,13 @@ X<int> x(3);                // Vytvoří objekt x třídy X typu <int>
 template <class T, class U=T, int n=0>
                             // Třída s implicitním 2. a 3. parametrem
 
-## Jmenné prostory
+// Jmenné prostory
 
 namespace N {class T {};}   // Zakrytí T v prostoru N
 N::T t;                     // Použití jména T v prostoru N
 using namespace N;          // Udělání T viditelné bez N:: viz. cout;-)
 
-## `memory` (správa dynamické paměti)
+// `memory` (správa dynamické paměti)
 
 #include <memory>           // Vložení hlavičky <memory> (jmenný prostor std)
 shared_ptr<int> x;          // Prázdný chytrý sdílený ukazatel shared_ptr na celé číslo na haldě.
@@ -309,7 +308,7 @@ cout << *q;
 shared_ptr<B> r;
 r = dynamic_pointer_cast<B>(t); // Konverze t na shared_ptr<B>
 
-## `math.h`, `cmath` (plovoucí čárka)
+// `math.h`, `cmath` (plovoucí čárka)
 
 #include <cmath>            // Hlavička cmath (jmenný prostor std)
 sin(x); cos(x); tan(x);     // Trigonometrické funkce, x (double) jsou v radiánech
@@ -321,13 +320,13 @@ pow(x, y); sqrt(x);         // x na y, odmocnina
 ceil(x); floor(x);          // Zaokrouhlení nahoru, dolů (jako double)
 fabs(x); fmod(x, y);        // Absolutní hodnota, x modulo y
 
-## `assert.h`, `cassert` (Debugovací první pomoc)
+// `assert.h`, `cassert` (Debugovací první pomoc)
 
 #include <cassert>        // Hlavička iostream (jmenný prostor std)
 assert(e);                // Jestliže e je nepravda, následuje vytisknutí zprávy a ukončení
 #define NDEBUG            // (před #include <assert.h>), vypnutí assert
 
-## `iostream.h`, `iostream` (Nahrazuje `stdio.h`)
+// `iostream.h`, `iostream` (Nahrazuje `stdio.h`)
 
 #include <iostream>         // Hlavička iostream (jmenný prostor std)
 cin >> x >> y;              // Čtení slov x a y (jakéhokoliv typu) z proudu stdin
@@ -341,7 +340,7 @@ if (cin)                    // Dobrý stav (nikoliv EOF)?
 istream& operator>>(istream& i, T& x) {i >> ...; x=...; vrácení i;}
 ostream& operator<<(ostream& o, const T& x) {vrácení o << ...;}
 
-## `fstream.h`, `fstream` (Soubor I/O pracuje stejně jako cin, cout zmíněný výše)
+// `fstream.h`, `fstream` (Soubor I/O pracuje stejně jako cin, cout zmíněný výše)
 
 #include <fstream>          // Hlavička filestream (jmenný prostor std)
 ifstream f1("filename");    // Otevření textového souboru pro čtení
@@ -352,7 +351,7 @@ f1.getline(s, n);           // Čtení řádky do řetězce (string s[n])
 ofstream f2("filename");    // Otevření souboru pro zápis
 if (f2) f2 << x;            // Zápis do souboru
 
-## `string` (Proměnlivě veliké pole znaků)
+// `string` (Proměnlivě veliké pole znaků)
 
 #include <string>         // Hlavička string (jmenný prostor std)
 string s1, s2="hello";    // Vytvoření řetězce
@@ -365,7 +364,7 @@ s1.c_str();               // Konverze na const char*
 s1 = to_string(12.05);    // Konverze čísla na řetězec string
 getline(cin, s);          // Čtení řádky zakončené '\n'
 
-## `vector` (Pole/Zásobník s proměnlivou velikostí s vestavěnou správou paměti)
+// `vector` (Pole/Zásobník s proměnlivou velikostí s vestavěnou správou paměti)
 
 #include <vector>         // Hlavička vector (jmenný prostor std)
 vector<int> a(10);        // a[0]..a[9] jsou int (výchozí velikost je 0)
@@ -385,7 +384,7 @@ vector<int> b(a.begin(), a.end());  // b je kopií a
 vector<T> c(n, x);        // c[0]..c[n-1] inicializace na x
 T d[10]; vector<T> e(d, d+10);      // e je inicializován d
 
-## `deque` (Pole zásobníku fronty)
+// `deque` (Pole zásobníku fronty)
 
 `deque<T>` je podobná jako `vector<T>`, ale také podporuje:
 
@@ -393,14 +392,14 @@ T d[10]; vector<T> e(d, d+10);      // e je inicializován d
 a.push_front(x);          // Vkládá x na a[0] a posouvá prvky dozadu
 a.pop_front();            // Odebírá a[0] a posouvá prvky dopředu
 
-## `utility` (pár)
+// `utility` (pár)
 
 #include <utility>               // Hlavička utility (jmenný prostor std)
 pair<string, int> a("ahoj", 3);  // 2-prvková struktura
 a.first;                         // "ahoj"
 a.second;                        // 3
 
-## `map` (asociativní pole - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
+// `map` (asociativní pole - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
 
 #include <map>                    // Hlavička map (jmenný prostor std)
 map<string, int> a;               // Mapa z řetězce po celé číslo
@@ -409,7 +408,7 @@ for (auto& p:a)
     cout << p.first << p.second;  // Tisk ahoj, 3
 a.size();                         // 1
 
-## `unordered_map` (asociativní pole - obvykle používané jako hash tabulka - prům. čas. složitost: O(1))
+// `unordered_map` (asociativní pole - obvykle používané jako hash tabulka - prům. čas. složitost: O(1))
 
 #include <unordered_map>        // Hlavička map (jmenný prostor std)
 unordered_map<string, int> a;   // Mapa z řetězce po celé číslo
@@ -418,7 +417,7 @@ for (auto& p:a)
     cout << p.first << p.second;// Tisk ahoj, 3
 a.size();                       // 1
 
-## `set` (uložení unikátních prvků - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
+// `set` (uložení unikátních prvků - obvykle implementované jako binární hledací strom - prům. čas. složitost: O(log n))
 
 #include <set>                  // Hlavička set (jmenný prostor std)
 set<int> s;                     // Set celých čísel
@@ -427,7 +426,7 @@ if (s.find(123) != s.end())     // Hledání prvku
     s.erase(123);
 cout << s.size();               // Počet prvků v setu
 
-## `unordered_set` (uložení unikátních prvků - obvykle používané jako hash tabulka - prům. čas. složitost: O(1))
+// `unordered_set` (uložení unikátních prvků - obvykle používané jako hash tabulka - prům. čas. složitost: O(1))
 
 #include <unordered_set>      // Hlavička set (jmenný prostor std)
 unordered_set<int> s;         // Set celých čísel
@@ -436,7 +435,7 @@ if (s.find(123) != s.end())   // Hledání prvku
     s.erase(123);
 cout << s.size();             // Počet prvků v setu
 
-## `algorithm` (Kolekce 60 algoritmů na posloupnosti s iterátory)
+// `algorithm` (Kolekce 60 algoritmů na posloupnosti s iterátory)
 
 #include <algorithm>          // Hlavička algorithm (jmenný prostor std)
 min(x, y); max(x, y);         // Nejmenší/Největší prvek x, y (jakýkoliv typ definuje <)
@@ -445,7 +444,7 @@ sort(a, a+n);                 // Setřízení pole a[0]..a[n-1] pomocí <
 sort(a.begin(), a.end());     // Setřízení vektoru nebo deque (fronta typu zásobník)
 reverse(a.begin(), a.end());  // Otočit vector nebo deque (fronta typu zásobník)
 
-## `chrono` (Knihovna související s časem)
+// `chrono` (Knihovna související s časem)
 
 #include <chrono>             // Hlavička chrono
 using namespace std::chrono;  // Použití jméného prostoru
@@ -460,7 +459,7 @@ using ms =                    // Difinice ms jako trvání s přesností plovouc
 cout << duration_cast<ms>(to - from)
   .count() << "ms";
 
-## `thread` (Více-vláknová knihovna)
+// `thread` (Více-vláknová knihovna)
 
 #include <thread>         // Hlavička thread
                           // Hardware vlákna (nebo 0 pro neznámé)
@@ -501,7 +500,7 @@ thread t1(pingPongFn, sharedMes);       // Zahájení příkladu s třemi konkur
 thread t2(pingPongFn, "pong");
 thread t3(pingPongFn, "boing");
 
-## `future` (Knihovna pro podporu vláken)
+// `future` (Knihovna pro podporu vláken)
 
 #include <future>         // Hlavička future
 function<int(int)> fib =  // Vytvoření lambda funkce
@@ -517,4 +516,4 @@ future<int> fut =               // Výsledek asynchronní funkce
 // vykonej nějakou práci
 cout << fut.get();        // Získání výsledku z asynchronní funkce. Vyčkávání pokud je potřebné.
 
-Překlad a doplnění některých dalších významů - Tomáš Mark (c) 2024
+// Překlad a doplnění některých dalších významů - Tomáš Mark (c) 2024
