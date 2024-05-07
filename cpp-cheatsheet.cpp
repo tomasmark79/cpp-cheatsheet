@@ -1,8 +1,7 @@
 // C++ REFERENCE
 
 // Preprocesor
-
-							// Komentář do konce řádku
+			    // Komentář do konce řádku
                             /* Víceřádkový komentář */
 #include <stdio.h>          // Vložení standardního hlavičkového souboru
 #include "myfile.h"         // Vložení s. h. souboru v akt. pracovní složce
