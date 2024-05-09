@@ -38,8 +38,8 @@ typedef tree<int, null_type, less_equal<int>,
 
 int main() {
   // your code goes here
-
-
+  lli a = 65536;
+  cout << a << endl;
 
   return 0;
 }
