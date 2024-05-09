@@ -27,7 +27,7 @@ using namespace std;
 #define printset(st) for(auto xt : st) cout<<xt<<" ";    cout<<endl;
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
-using namespace __gnu_pbds; 
+using namespace __gnu_pbds;
 // typedef tree<int,null_type,less<int>,rb_tree_tag,
 // tree_order_statistics_node_update> indexed_set;
 typedef tree<int, null_type, less_equal<int>, 
@@ -38,11 +38,9 @@ typedef tree<int, null_type, less_equal<int>,
 
 int main() {
   // your code goes here
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt","r",stdin);
-  freopen("output.txt","w",stdout);
-  #endif
-  
+
+
+
   return 0;
 }
 
