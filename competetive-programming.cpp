@@ -34,4 +34,15 @@ typedef tree<int, null_type, less_equal<int>,
              rb_tree_tag, 
              tree_order_statistics_node_update> 
     ordered_set; 
- 
+
+
+int main() {
+  // your code goes here
+  #ifndef ONLINE_JUDGE
+  freopen("input.txt","r",stdin);
+  freopen("output.txt","w",stdout);
+  #endif
+  
+  return 0;
+}
+
