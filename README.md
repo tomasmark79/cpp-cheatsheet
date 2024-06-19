@@ -1,9 +1,1 @@
-### C++ Referenční příručka
-
-[cpp-cheatsheet.cpp](cpp-cheatsheet.cpp)
-
-***Překlad do Češtiny a doplnění některých dalších významů - Tomáš Mark (c) 2024 (tomas@digitalspace.name)***
-
-[competetive-programming.cpp](competetive-programming.cpp)
-
-***Šablona pro kompetetivní psaní v C++***
+V jednom repozitáři jsem objevil moc pěknou referenci pro jazyk C++. Ve vlastním zájmu jsem si dal za úkol projít veškerou syntaxy a při té příležitosti jsem přeložil komentáře k jednotlivým příkazům. Jsem si moc dobře vědom, že počešťování některých anglických slovíček není úplně oblíbená disciplína a ne vždy se potká s úspěchem. Co se ale týče mě, smysl mi to dávalo hlavně z důvodu se skutečně zamyslet nad každým případem. Obecně se nejradši učím ve svém rodném jazyce. Níže je přímo referenční příručka. Také je k dispozici v mém repozitáři na GitHub zde.
