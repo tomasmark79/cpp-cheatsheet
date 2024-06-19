@@ -1,4 +1,4 @@
-### C++ Tahák - CheatSheet
+### C++ Referenční příručka
 
 [cpp-cheatsheet.cpp](cpp-cheatsheet.cpp)
 
