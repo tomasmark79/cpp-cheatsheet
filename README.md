@@ -1,4 +1,5 @@
-Reference pro jazyk C++ s překladem anglických komentářů do češtiny.
+Jedná se o velmi zajímavé pojetí referenční příručky jazyka C++. 
+
 ```cpp
 // C++ REFERENCE
 
