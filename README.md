@@ -1,4 +1,4 @@
-Jedná se o velmi zajímavé pojetí referenční příručky jazyka C++. 
+Jedná se o velmi zajímavé pojetí referenční příručky jazyka C++, kterou jsem přeložil.
 
 ```cpp
 // C++ REFERENCE
